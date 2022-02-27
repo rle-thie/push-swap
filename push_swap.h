@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/27 01:49:45 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/02/27 02:41:43 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ typedef struct s_stack
 }t_stack;
 
 int init_lst(t_stack *tab);
+t_stack create_lst(void)
 
 #endif
