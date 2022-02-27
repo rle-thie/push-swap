@@ -14,6 +14,6 @@
 
 int main(void)
 {
-    printf("ouais");
-    return (0);
+	printf("ouais");
+	return (0);
 }
