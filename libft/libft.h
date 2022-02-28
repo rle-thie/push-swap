@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:29:55 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/01/26 14:01:28 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:38:15 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <stddef.h>
-
-# include "get_next_line/get_next_line.h"
 
 typedef struct s_list
 {
