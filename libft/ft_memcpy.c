@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 14:39:36 by rle-thie         ###   ########.fr       */
+/*   Created: 2021/11/24 17:07:50 by rle-thie          #+#    #+#             */
+/*   Updated: 2021/12/10 16:40:36 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <string.h>
+#include <stdio.h>
 
-# include "libft/libft.h"
-# include <stdio.h>
-
-typedef struct s_stack
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	int				content;
-	int	            index;
-}t_stack;
+	size_t	i;
 
-//	parsing
-void check_input(int ac, char **av);
-
-// operations
-
-// sort
-
-#endif
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	while (i < n)
+	{
+		((char *)dest)[i] = ((char *)src)[i];
+		i++;
+	}
+	return (dest);
+}

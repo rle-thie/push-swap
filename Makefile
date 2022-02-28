@@ -1,30 +1,35 @@
 SRCS	= $(addprefix srcs/, main.c \
-                            parsing/init_list.c)
+					parsing/check_input.c)
 
-OBJS	= ${SRCS:.c=.o}
+OBJS = ${SRCS:.c=.o}
 
-NAME 	= push_swap
+NAME = push_swap
 
-RM		= rm -f
+LIBFT = libft/libft.a
 
-CC		= cc
+CC = gcc
 
-CFLAGS	= -Wall -Wextra -Werror -g3
+RM = rm -f
 
-all:		${NAME}
+CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
-	        ${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+all:	${NAME}
 
 ${NAME}:	${OBJS}
-			ar rc ${NAME} ${OBJS}
+			@make bonus -C libft
+			@${CC} ${OBJS} ${CFLAG} -o ${NAME} ${LIBFT}
+
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
-			${RM} ${OBJS}
+		@make -C libft clean
+		${RM} ${OBJS}
 
 fclean:		clean
 			${RM} ${NAME}
+			${RM} ${LIBFT}
 
-re:			fclean all
+re: fclean all
 
 .PHONY: all clean fclean re

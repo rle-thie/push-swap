@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rle-thie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 14:39:20 by rle-thie         ###   ########.fr       */
+/*   Created: 2021/11/24 17:07:50 by rle-thie          #+#    #+#             */
+/*   Updated: 2021/11/26 11:54:43 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include <string.h>
+#include <stdio.h>
 
-int main(int ac, char **av)
+void	ft_bzero(void *s, size_t n)
 {
-	check_input(ac, av);
-	return (0);
+	size_t	i;
+	char	*s1;
+
+	i = 0;
+	s1 = (char *)s;
+	while (i < n)
+		s1[i++] = '\0';
 }

@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 14:39:36 by rle-thie         ###   ########.fr       */
+/*   Created: 2021/12/07 18:03:22 by rle-thie          #+#    #+#             */
+/*   Updated: 2021/12/13 12:54:01 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
+// static void ft_lstdelonee(t_list *lst, void (*del)(void*))
+// {
+// 	del((void*)lst);
+// }
 
-typedef struct s_stack
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	int				content;
-	int	            index;
-}t_stack;
+	t_list	*tmp;
+	t_list	*tmp2;
 
-//	parsing
-void check_input(int ac, char **av);
-
-// operations
-
-// sort
-
-#endif
+	tmp = *lst;
+	while (tmp != NULL)
+	{
+		tmp2 = tmp->next;
+		ft_lstdelone(tmp, del);
+		tmp = tmp2;
+	}
+	*lst = NULL;
+}

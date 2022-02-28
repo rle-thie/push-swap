@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 14:39:36 by rle-thie         ###   ########.fr       */
+/*   Created: 2021/11/26 14:22:15 by rle-thie          #+#    #+#             */
+/*   Updated: 2021/12/10 15:48:14 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stddef.h>
+#include <string.h>
+#include <stdio.h>
 
-# include "libft/libft.h"
-# include <stdio.h>
-
-typedef struct s_stack
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	int				content;
-	int	            index;
-}t_stack;
+	size_t	i;
+	char	*dst;
 
-//	parsing
-void check_input(int ac, char **av);
-
-// operations
-
-// sort
-
-#endif
+	dst = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (dst[i] == (char)c)
+			return ((void *)s + i);
+		i++;
+	}
+	return (0);
+}

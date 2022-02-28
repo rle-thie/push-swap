@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 14:39:36 by rle-thie         ###   ########.fr       */
+/*   Created: 2021/11/24 16:25:20 by rle-thie          #+#    #+#             */
+/*   Updated: 2021/12/10 17:00:29 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stddef.h>
 
-# include "libft/libft.h"
-# include <stdio.h>
-
-typedef struct s_stack
+char	*ft_strrchr(const char *s, int c)
 {
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	int				content;
-	int	            index;
-}t_stack;
+	int		i;
+	int		len;
 
-//	parsing
-void check_input(int ac, char **av);
-
-// operations
-
-// sort
-
-#endif
+	i = 0;
+	len = 0;
+	while (s[len])
+		len++;
+	while (s[i] && s[len] != (char)c)
+	{
+		i++;
+		len--;
+	}
+	if (s[len] == (char)c)
+		return ((char *)&s[len]);
+	else
+		return (NULL);
+}

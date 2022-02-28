@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 14:39:36 by rle-thie         ###   ########.fr       */
+/*   Created: 2021/12/03 16:06:02 by rle-thie          #+#    #+#             */
+/*   Updated: 2021/12/13 12:51:55 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-
-typedef struct s_stack
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	int				content;
-	int	            index;
-}t_stack;
+	char	*fr;
+	size_t	len;
+	int		i;
 
-//	parsing
-void check_input(int ac, char **av);
-
-// operations
-
-// sort
-
-#endif
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	len = ft_strlen(s);
+	fr = malloc((len + 1) * sizeof(char));
+	if (!fr)
+		return (NULL);
+	fr[len] = '\0';
+	while (s[i] != '\0')
+	{
+		fr[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (fr);
+}
