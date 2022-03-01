@@ -6,15 +6,27 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 15:02:48 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:36:29 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void check_input(int ac, char **av)
+char **split_input(int ac, char **av)
 {
-	ac=ac;
-	av=av;
-	printf("bite");
+	
+}
+
+int	ft_error(void)
+{
+	write(1, "Error\n", 6);
+	return (0);
+}
+
+int check_input(int ac, char **av)
+{
+	if (ac < 2)
+		return(ft_error());
+	split_input(ac, av);
+	return (1);
 }

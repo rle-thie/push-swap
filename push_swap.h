@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 14:39:36 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:33:29 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
@@ -25,7 +25,7 @@ typedef struct s_stack
 }t_stack;
 
 //	parsing
-void check_input(int ac, char **av);
+int check_input(int ac, char **av);
 
 // operations
 
