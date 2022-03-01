@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/01 15:48:27 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:36:00 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ char	**create_tab(int c, int ac, char **av)
 	char **tab;
 	char **buff;
 	int	i;
+	int	x;
+	int y;
 	
+	x = 0;
 	tab = malloc(sizeof(char *) * c + 1);
 	if (!tab)
 		return (NULL);
@@ -46,18 +49,22 @@ char	**create_tab(int c, int ac, char **av)
 	{
 		if (ft_strchr(av[i], ' '))
 		{
-			y = 0;
 			buff = ft_split(av[i], ' ');
-			while ()
-			printf("ouais");
+			y = 0;
+			while (buff[y])
+			{
+				tab[x++] = ft_strdup(buff[y++]);
+				// y++;
+			}
+			ft_free(buff);
+			i++;
 		}
 		else
-			tab[i] = ft_strdup(av[i]);
-		i++;
+			tab[x++] = ft_strdup(av[i++]);
 	}
-	free(tab);
-	// return (tab);
-	return (NULL);
+	// free(tab);
+	return (tab);
+	// return (NULL);
 }
 
 int	ft_valid_arg(char *str)
@@ -70,7 +77,9 @@ int	ft_valid_arg(char *str)
 		while (i < ft_strlen(str))
 		{
 			if ((i == 0 && str[i] == '+') || (i == 0 && str[i] == '-') || str[i] == ' ')
+			{
 				i++;
+			}
 			if (!ft_isdigit(str[i]) || (i != 0 && str[i] == '-') || (i != 0 && str[i] == '+'))
 				return (0);
 			i++;
@@ -88,6 +97,7 @@ int	check_space_value(int ac, char **av)
 	char	**str;
 	int	c;
 	int y;
+	int	x;
 
 	i = 1;
 	c = 0;
@@ -95,13 +105,19 @@ int	check_space_value(int ac, char **av)
 	{
 		if (ft_strchr(av[i], ' '))
 		{
+			x = 0;
 			y = 0;
 			str = ft_split(av[i], ' ');
-			while (!str[i])
+			while (str[x] != NULL)
+			{
 				y++;
+				x++;
+			}
+			y--;
 			c = c + y;
 			ft_free(str);
 		}
+		i++;
 	}
 	return (c);
 }
@@ -110,7 +126,7 @@ char **split_input(int ac, char **av)
 {
 	int i;
 	int	c;
-	char **tab;
+	// char **tab;
 
 	c = 0;
 	i = 1;
@@ -126,8 +142,8 @@ char **split_input(int ac, char **av)
 		i++;
 	}
 	c = c + check_space_value(ac, av);
-	tab = create_tab(c, ac, av);
-	i = 1;
+	// tab = create_tab(c, ac, av);
+	// i = 1;
 	// while (i < ac)
 	// 	printf("%s\n", tab[i++]);
 	printf("c=%d", c);
