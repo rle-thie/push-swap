@@ -6,30 +6,11 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/01 16:36:00 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:08:46 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-void	ft_free(char **strs)
-{
-	int	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		free(strs[i]);
-		i++;
-	}
-	free(strs);
-}
-
-int	ft_error(void)
-{
-	write(1, "Error\n", 6);
-	return (0);
-}
 
 char	**create_tab(int c, int ac, char **av)
 {
@@ -43,7 +24,7 @@ char	**create_tab(int c, int ac, char **av)
 	tab = malloc(sizeof(char *) * c + 1);
 	if (!tab)
 		return (NULL);
-	tab[c+1] = NULL;
+	tab[c] = NULL;
 	i = 1;
 	while (i < ac)
 	{
@@ -77,12 +58,11 @@ int	ft_valid_arg(char *str)
 		while (i < ft_strlen(str))
 		{
 			if ((i == 0 && str[i] == '+') || (i == 0 && str[i] == '-') || str[i] == ' ')
-			{
 				i++;
-			}
-			if (!ft_isdigit(str[i]) || (i != 0 && str[i] == '-') || (i != 0 && str[i] == '+'))
+			else if (!ft_isdigit(str[i]) || (i != 0 && str[i] == '-') || (i != 0 && str[i] == '+'))
 				return (0);
-			i++;
+			else
+				i++;
 		}
 		return (1);
 	}
@@ -126,7 +106,7 @@ char **split_input(int ac, char **av)
 {
 	int i;
 	int	c;
-	// char **tab;
+	char **tab;
 
 	c = 0;
 	i = 1;
@@ -142,19 +122,24 @@ char **split_input(int ac, char **av)
 		i++;
 	}
 	c = c + check_space_value(ac, av);
-	// tab = create_tab(c, ac, av);
-	// i = 1;
-	// while (i < ac)
-	// 	printf("%s\n", tab[i++]);
-	printf("c=%d", c);
-	return(NULL);
+	tab = create_tab(c, ac, av);
+	i = 0;
+	while (tab[i])
+		printf("%s ", tab[i++]);
+	printf("\nc=%d\n", c);
+	return(tab);
 }
 
 
-int check_input(int ac, char **av)
+char	**check_input(int ac, char **av)
 {
+	char	**tab;
+	
 	if (ac < 2)
-		return(ft_error());
-	split_input(ac, av);
-	return (1);
+	{
+		write(1, "Error\n", 6);
+		return(NULL);
+	}
+	tab = split_input(ac, av);
+	return (tab);
 }

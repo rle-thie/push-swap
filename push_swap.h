@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/28 16:33:29 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:29:02 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,14 @@ typedef struct s_stack
 }t_stack;
 
 //	parsing
-int check_input(int ac, char **av);
+void	ft_free(char **strs);
+int	ft_error(void);
+char	**create_tab(int c, int ac, char **av);
+int	ft_valid_arg(char *str);
+int	check_space_value(int ac, char **av);
+char **split_input(int ac, char **av);
+char	**check_input(int ac, char **av);
+
 
 // operations
 

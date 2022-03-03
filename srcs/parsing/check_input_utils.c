@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_input_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/03 15:26:56 by rle-thie         ###   ########.fr       */
+/*   Created: 2022/03/02 19:01:31 by rle-thie          #+#    #+#             */
+/*   Updated: 2022/03/02 19:02:14 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-int main(int ac, char **av)
+void	ft_free(char **strs)
 {
-	char	**input;
-	
-	input = check_input(ac, av);
-	// init_stacks();
-	ft_free(input);
+	int	i;
+
+	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+}
+
+int	ft_error(void)
+{
+	write(1, "Error\n", 6);
 	return (0);
 }
