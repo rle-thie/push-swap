@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 00:57:32 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/02/27 02:46:15 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/05 18:19:43 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	init_lst(t_stack *tab)
 
 t_stack	create_lst(void)
 {
-	t_stack	tab;
+	t_stack	stack_a;
 	
-	init_lst(&tab);
-	return (tab);
+	init_lst(&stack_a);
+	return (stack_a);
 }

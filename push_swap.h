@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/03 15:29:02 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/05 18:55:34 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include "libft/libft.h"
 # include <unistd.h>
+
+typedef struct s_tab
+{
+	int	*tab;
+	int	len;
+}t_tab;
 
 typedef struct s_stack
 {

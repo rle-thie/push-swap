@@ -6,11 +6,28 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/03 16:08:46 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/05 19:08:38 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+int	*convert_tab_int(char **tab, int len)
+{
+	int	i;
+	int	*int_tab;
+	
+	int_tab = malloc(sizeof(int) * len);
+	if (!int_tab)
+		return (NULL);
+	int_tab[0] = 0;
+	i = 0;
+	while(tab[i])
+	{
+		int_tab[i] = atoi(tab[i]);
+		i++;
+	}
+}
 
 char	**create_tab(int c, int ac, char **av)
 {
@@ -127,6 +144,7 @@ char **split_input(int ac, char **av)
 	while (tab[i])
 		printf("%s ", tab[i++]);
 	printf("\nc=%d\n", c);
+	convert_tab_int(tab, c);
 	return(tab);
 }
 
