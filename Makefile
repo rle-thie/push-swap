@@ -6,12 +6,13 @@
 #    By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 19:05:04 by rle-thie          #+#    #+#              #
-#    Updated: 2022/03/02 19:05:16 by rle-thie         ###   ########.fr        #
+#    Updated: 2022/03/08 15:53:00 by rle-thie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= $(addprefix srcs/, main.c \
-					parsing/check_input.c parsing/check_input_utils.c)
+					parsing/check_input.c parsing/check_input_utils.c \
+					parsing/init_list.c)
 
 OBJS = ${SRCS:.c=.o}
 

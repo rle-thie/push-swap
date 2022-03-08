@@ -6,18 +6,25 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/08 15:32:16 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/08 18:08:58 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+int	free_tab(t_tab *tab)
+{
+	free(tab->tab);
+	free(tab);
+	return (0);
+}
+
 int main(int ac, char **av)
 {
 	t_tab *data;
-	// int i;
-	// t_stack	a;
-	// t_stack	b;
+	int i;
+	t_stack	*a;
+	t_stack	*b;
 	
 	if (ac <= 1)
 		return (ft_error());
@@ -29,10 +36,18 @@ int main(int ac, char **av)
 	// {
 		// printf("%d, %d\n", data->len, data->tab[i++]);
 	// }
-	// a = create_lst();
-	// b = NULL;
-	// free(data->len);
-	// free(data->tab);
-	free(data);
+	a = create_lst(data);
+	b = NULL;
+	a = a;
+	b = b;
+	
+	i = 0;
+	while (i < data->len)
+	{
+		printf("%d, %d, %p", a->index, a->content, a->prev);
+		a = a->next;
+		i++;
+	}
+	// free_tab(data);
 	return (0);
 }

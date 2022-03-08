@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/08 14:46:38 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/08 18:46:30 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	check_space_value(int ac, char **av);
 int	*split_input(int ac, char **av, t_tab *data);
 t_tab	*check_input(int ac, char **av);
 
+t_stack	*create_lst(t_tab *data);
 
 // operations
 
