@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/07 19:14:30 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/08 15:41:01 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ int	*convert_tab_int(char **tab, int len)
 	int	i;
 	int	*int_tab;
 	
+	i = 0;
 	int_tab = malloc(sizeof(int) * len);
 	if (!int_tab)
 		return (NULL);
-	int_tab[0] = 0;
-	i = 0;
 	while(tab[i])
 	{
 		int_tab[i] = atoi(tab[i]);
 		i++;
 	}
-	// ft_free(tab);
+	ft_free(tab);
 	return (int_tab);
 }
 
@@ -43,7 +42,6 @@ char	**create_tab(int c, int ac, char **av)
 	tab = malloc(sizeof(char *) * c + 1);
 	if (!tab)
 		return (NULL);
-	tab[c] = NULL;
 	i = 1;
 	while (i < ac)
 	{
@@ -70,14 +68,23 @@ char	**create_tab(int c, int ac, char **av)
 int	ft_valid_arg(char *str)
 {
 	size_t	i;
+	int	sign;
 	
+	sign = 0;
 	if (str[0] != '\0')
 	{
 		i = 0;
 		while (i < ft_strlen(str))
 		{
-			if ((i == 0 && str[i] == '+') || (i == 0 && str[i] == '-') || str[i] == ' ')
+			if (str[i] == ' ' || ft_isdigit(str[i]))
+				sign = 0;
+			if ((i == 0 && str[i] == '+' && sign == 0) || (i == 0 && str[i] == '-' && sign == 0) || str[i] == ' ')
 				i++;
+			else if ((sign == 0 && str[i] == '+') || (sign == 0 && str[i] == '-'))
+			{
+				i++;
+				sign++;
+			}
 			else if (!ft_isdigit(str[i]) || (i != 0 && str[i] == '-') || (i != 0 && str[i] == '+'))
 				return (0);
 			else
@@ -121,11 +128,12 @@ int	check_space_value(int ac, char **av)
 	return (c);
 }
 
-char **split_input(int ac, char **av)
+int	*split_input(int ac, char **av, t_tab *data)
 {
 	int i;
 	int	c;
 	char **tab;
+	int	*int_tab;
 
 	c = 0;
 	i = 1;
@@ -146,19 +154,34 @@ char **split_input(int ac, char **av)
 	// 	printf("%s ", tab[i++]);
 	// printf("\nc=%d\n", c);
 	// convert_tab_int(tab, c);
-	return(tab);
+	data->len = c;
+	int_tab = convert_tab_int(tab, c);
+	return (int_tab);
 }
 
-
-char	**check_input(int ac, char **av)
+t_tab	*init_data(void)
 {
-	char	**tab;
+	t_tab *data;
+	data = malloc(sizeof(*data));
+	if (!data)
+		return (0);
+	data->len = 0;
+	return (data);
+}
+
+t_tab	*check_input(int ac, char **av)
+{	
+	t_tab	*data;
+	int	*buff;
 	
 	if (ac < 2)
 	{
 		write(1, "Error\n", 6);
 		return(NULL);
 	}
-	tab = split_input(ac, av);
-	return (tab);
+	data = init_data();
+	buff = split_input(ac, av, data);
+	data->tab = buff;
+	free(buff);
+	return (data);
 }

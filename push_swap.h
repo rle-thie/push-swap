@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/05 18:55:34 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/08 14:46:38 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	ft_error(void);
 char	**create_tab(int c, int ac, char **av);
 int	ft_valid_arg(char *str);
 int	check_space_value(int ac, char **av);
-char **split_input(int ac, char **av);
-char	**check_input(int ac, char **av);
+int	*split_input(int ac, char **av, t_tab *data);
+t_tab	*check_input(int ac, char **av);
 
 
 // operations
