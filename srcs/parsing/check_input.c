@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/05 19:08:38 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/07 19:14:30 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	*convert_tab_int(char **tab, int len)
 		int_tab[i] = atoi(tab[i]);
 		i++;
 	}
+	// ft_free(tab);
+	return (int_tab);
 }
 
 char	**create_tab(int c, int ac, char **av)
@@ -133,7 +135,6 @@ char **split_input(int ac, char **av)
 			c++;
 		else
 		{
-			ft_error();
 			return(NULL);
 		}
 		i++;
@@ -141,10 +142,10 @@ char **split_input(int ac, char **av)
 	c = c + check_space_value(ac, av);
 	tab = create_tab(c, ac, av);
 	i = 0;
-	while (tab[i])
-		printf("%s ", tab[i++]);
-	printf("\nc=%d\n", c);
-	convert_tab_int(tab, c);
+	// while (tab[i])
+	// 	printf("%s ", tab[i++]);
+	// printf("\nc=%d\n", c);
+	// convert_tab_int(tab, c);
 	return(tab);
 }
 
