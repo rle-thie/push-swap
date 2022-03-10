@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 00:57:32 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/10 22:00:40 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/10 22:25:16 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,14 @@ void	lst_add_next(t_stack *start, t_stack *lst)
 			printf("%d, %d\n", buff->content, lst->content);
 			buff->next = lst;
 		}
+		else
+			start = lst;
 	}
+}
+
+void	sort_index(t_stack *start, t_stack *lst)
+{
+	
 }
 
 t_stack	*create_lst(t_tab *data)
