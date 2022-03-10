@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 00:57:32 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/10 17:43:38 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/10 22:00:40 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,6 @@ void	lst_add_next(t_stack *start, t_stack *lst)
 			printf("%d, %d\n", buff->content, lst->content);
 			buff->next = lst;
 		}
-		else
-		{
-			start = lst;
-		}
 	}
 }
 
@@ -65,7 +61,7 @@ t_stack	*create_lst(t_tab *data)
 	i = 1;
 	lst = init_lst(NULL, data->tab[0]);
 	start = lst;
-	while (i < data->len + 1)
+	while (i < data->len)
 	{
 		lst = init_lst(lst, data->tab[i]);
 		lst_add_next(start, lst);
