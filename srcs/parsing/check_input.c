@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/08 15:41:01 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/10 16:41:56 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,17 +156,37 @@ int	*split_input(int ac, char **av, t_tab *data)
 	// convert_tab_int(tab, c);
 	data->len = c;
 	int_tab = convert_tab_int(tab, c);
+	// printf("%d\n", int_tab[0]);
+	// printf("%d\n", int_tab[1]);
+	// printf("%d\n", int_tab[2]);
+	// printf("%d\n", int_tab[3]);
 	return (int_tab);
 }
 
 t_tab	*init_data(void)
 {
 	t_tab *data;
-	data = malloc(sizeof(*data));
+	data = malloc(sizeof(t_tab));
 	if (!data)
 		return (0);
 	data->len = 0;
 	return (data);
+}
+
+int	intcpy(t_tab *data, int *buff)
+{
+	int i;
+
+	data->tab = malloc(sizeof(int) * data->len);
+	if (!data->tab)
+		return (0);
+	i = 0;
+	while (i < data->len)
+	{
+		data->tab[i] = buff[i];
+		i++;
+	}
+	return (1);
 }
 
 t_tab	*check_input(int ac, char **av)
@@ -181,7 +201,8 @@ t_tab	*check_input(int ac, char **av)
 	}
 	data = init_data();
 	buff = split_input(ac, av, data);
-	data->tab = buff;
+	// data->tab = buff;
+	intcpy(data, buff);
 	free(buff);
 	return (data);
 }
