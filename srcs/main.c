@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/10 21:33:15 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/11 14:54:03 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int ac, char **av)
 	if (ac <= 1)
 		return (ft_error());
 	data = check_input(ac, av);
-	if (!data->tab)
+	if (!check_input(ac, av))
 		return (ft_error());
 	// i = 0;
 	printf("\n====MAIN====\n");

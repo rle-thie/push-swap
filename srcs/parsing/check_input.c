@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/10 16:41:56 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/11 14:42:15 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,20 +189,73 @@ int	intcpy(t_tab *data, int *buff)
 	return (1);
 }
 
+int	check_double(t_tab *data)
+{
+	int i;
+	int	buff;
+	int	y;
+	int c;
+
+	i = 0;
+	while (i < data->len)
+	{
+		buff = data->tab[i];
+		y = 0;
+		c = 0;
+		while (y < data->len)
+		{
+			if (buff == data->tab[y])
+				c++;
+			if (c == 2)
+				return (0);
+			y++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int check_sorted(t_tab *data)
+{
+	int i;
+	int	buff;
+	int c;
+
+	c = 0;
+	i = 1;
+	while (i < data->len)
+	{
+		buff = data->tab[i];
+		if (buff > data->tab[i - 1])
+		{
+			// printf("oqusi %d, buff=%d, data=%d\n", c, buff, data->tab[i]);	
+			c++;
+		}
+		// printf("oqusi %d, buff=%d, data=%d\n", c, buff, data->tab[i - 1]);	
+		i++;
+	}
+	// printf("\n\n\n");
+	if (c == data->len - 1)
+		return (0);
+	else
+		return (1);
+}
+
 t_tab	*check_input(int ac, char **av)
 {	
 	t_tab	*data;
 	int	*buff;
-	
-	if (ac < 2)
-	{
-		write(1, "Error\n", 6);
-		return(NULL);
-	}
+
 	data = init_data();
 	buff = split_input(ac, av, data);
 	// data->tab = buff;
 	intcpy(data, buff);
 	free(buff);
+	
+	if (data->len <= 1 || !check_double(data)  || !check_sorted(data))
+	{
+		free_tab(data);
+		return(NULL);
+	}
 	return (data);
 }
