@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:25:40 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/11 22:13:53 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/11 22:20:07 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,24 @@ int	rotate(t_stack **lst)
 void	ra(t_stack **lst)
 {
 	if (rotate(lst))
-		ft_putstr_fd("ra", 1);
+		ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_stack **lst)
 {
 	if (rotate(lst))
-		ft_putstr_fd("rb", 1);
+		ft_putstr_fd("rb\n", 1);
+}
+
+void	rb(t_stack **a, t_stack **b)
+{
+	int c;
+
+	c = 0;
+	if (rotate(a))
+		c++;
+	if (rotate(b))
+		c++;
+	if (c > 0)
+		ft_putstr_fd("rr\n", 1);
 }
