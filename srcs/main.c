@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/11 15:57:15 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/11 22:05:59 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int main(int ac, char **av)
 	}
 	a = b;
 	
-	sa(a);
+	ra(&a);
 	
-	printf("====STACK A====\n");
+	printf("\n====STACK A====\n\n");
 	i = 0;
 	while (i < data->len)
 	{
