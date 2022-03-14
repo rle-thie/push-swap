@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:25:40 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/11 22:20:07 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:10:42 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	rb(t_stack **lst)
 		ft_putstr_fd("rb\n", 1);
 }
 
-void	rb(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	int c;
 

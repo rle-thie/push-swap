@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/11 22:05:59 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/14 19:35:50 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int ac, char **av)
 	int i;
 	t_stack	*a;
 	t_stack	*b;
+	t_stack *tmp;
 	
 	if (ac <= 1)
 		return (ft_error());
@@ -40,8 +41,7 @@ int main(int ac, char **av)
 
 	a = create_lst(data);
 	b = NULL;
-	b = a;
-	b = b;
+	tmp = a;
 
 	printf("====STACK A====\n");
 	i = 0;
@@ -51,16 +51,27 @@ int main(int ac, char **av)
 		a = a->next;
 		i++;
 	}
-	a = b;
+	a = tmp;
 	
-	ra(&a);
+	pa(&a, &b);
+	pa(&a, &b);
 	
 	printf("\n====STACK A====\n\n");
+	printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
+	b = b->next;
+	printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
+	// i = 0;
+	// while (b->next != NULL)
+	// {
+	// 	printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n", b, b->prev, b->next, b->content, b->index);
+	// 	// printf("value=%d, index=%d", a)
+	// 	b = b->next;
+	// 	i++;
+	// }
 	i = 0;
-	while (i < data->len)
+	while (i < data->len - 2)
 	{
 		printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n", a, a->prev, a->next, a->content, a->index);
-		// printf("value=%d, index=%d", a)
 		a = a->next;
 		i++;
 	}
