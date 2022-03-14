@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:24:24 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/14 19:39:28 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/15 00:09:44 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,17 @@ int	push(t_stack **a, t_stack **b)
 		else
 		{
 			printf("testttttttt\n\n");
-			(*b)->prev = *a;
-			*b = *a;
-			*a = (*a)->next;
-			(*b)->next->prev = *b;
+			// (*b)->prev = *a;
+			// *b = *a;
+			// *a = (*a)->next;
+			// (*b)->next->prev = *b;
 			
-			(*a)->prev = NULL;
+			// (*a)->prev = NULL;
+			// (*b)->prev = NULL;
+			(*b)->prev = *a;
+			(*b)->prev->next = *b;
+			(*a)->next->prev = NULL;
+			*b = *a;
 			(*b)->prev = NULL;
 			return (1);
 		}
@@ -51,8 +56,28 @@ int	push(t_stack **a, t_stack **b)
 	}
 }
 
+void	push_null(t_stack **a, t_stack **b)
+{
+	if (!*b)
+	{
+		*b = *a;
+			printf("oauis\n");
+			*a = (*a)->next;
+			// printf("test %d \n\n", (*a)->content);
+			(*b)->prev = NULL;
+			(*b)->next = NULL;
+			(*a)->prev = NULL;
+	}
+}
+
 void	pa(t_stack **a, t_stack **b)
 {
-	if (push(a, b) == 1)
-		ft_putstr_fd("pa", 1);
+	if (*a)
+	{
+		if ((*a)->next)
+			push_filled(a, b);
+		else
+			push_null(a, b);
+		ft_putstr_fd("pa\n", 1);
+	}
 }
