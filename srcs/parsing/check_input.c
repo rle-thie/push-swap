@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/15 15:09:56 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/15 19:24:26 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ char	**create_tab(int c, int ac, char **av)
 	int y;
 	
 	x = 0;
-	tab = malloc(sizeof(char *) * c + 1);
+	// tab = malloc(sizeof(char *) * c + 1);
+	tab = ft_calloc(sizeof(char *), c + 1);
 	if (!tab)
 		return (NULL);
+	tab[0] = NULL;
 	i = 1;
 	while (i < ac)
 	{
