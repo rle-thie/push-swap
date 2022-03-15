@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/11 14:42:15 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:09:56 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,7 @@ int	*split_input(int ac, char **av, t_tab *data)
 t_tab	*init_data(void)
 {
 	t_tab *data;
+
 	data = malloc(sizeof(t_tab));
 	if (!data)
 		return (0);
