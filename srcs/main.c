@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/16 15:32:41 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:49:07 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,14 @@ int main(int ac, char **av)
 	a = tmp;
 	
 	rra(&a);
+	printf("nbr = %d\n", stack_len(a));
+	// printf("%d\n", a->content);
+	printf("%d\n", is_a_sorted(a));
 	// pa(&a, &b);
 	
 	printf("\n====STACK A====\n\n");
 	// printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
-	// b = b->next;
-	// printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
+
 	i = 0;
 	while (i < data->len)
 	{
@@ -68,6 +70,9 @@ int main(int ac, char **av)
 		a = a->next;
 		i++;
 	}
+
+	// b = b->next;
+	// printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
 	// i = 0;
 	// while (i < data->len - 1)
 	// {

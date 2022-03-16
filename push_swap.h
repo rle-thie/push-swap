@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/16 15:50:09 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/16 16:18:21 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void	rrb(t_stack **a);
 void	rrr(t_stack **a, t_stack **b);
 
 // sort
+int	is_a_sorted(t_stack *lst);
+int	stack_len(t_stack *lst);
 
 #endif
