@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/15 14:24:05 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:32:41 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main(int ac, char **av)
 
 	a = create_lst(data);
 	b = NULL;
+	b = b;
 	tmp = a;
 
 	printf("====STACK A====\n");
@@ -53,28 +54,27 @@ int main(int ac, char **av)
 	}
 	a = tmp;
 	
-	pa(&a, &b);
+	rra(&a);
 	// pa(&a, &b);
 	
 	printf("\n====STACK A====\n\n");
-	printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
+	// printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
 	// b = b->next;
 	// printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
-	// i = 0;
-	// while (b->next != NULL)
-	// {
-	// 	printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n", b, b->prev, b->next, b->content, b->index);
-	// 	// printf("value=%d, index=%d", a)
-	// 	b = b->next;
-	// 	i++;
-	// }
 	i = 0;
-	while (i < data->len - 1)
+	while (i < data->len)
 	{
 		printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n", a, a->prev, a->next, a->content, a->index);
 		a = a->next;
 		i++;
 	}
+	// i = 0;
+	// while (i < data->len - 1)
+	// {
+	// 	printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n", a, a->prev, a->next, a->content, a->index);
+	// 	a = a->next;
+	// 	i++;
+	// }
 
 	free_tab(data);
 	return (0);
