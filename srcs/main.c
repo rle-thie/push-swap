@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/16 18:49:07 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/20 00:42:57 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,22 @@ int	free_tab(t_tab *tab)
 int main(int ac, char **av)
 {
 	t_tab *data;
-	int i;
+	// int i;
 	t_stack	*a;
 	t_stack	*b;
-	t_stack *tmp;
+	// t_stack *tmp;
 
 	if (ac <= 1)
 		return (ft_error());
 	data = check_input(ac, av);
 	if (!check_input(ac, av))
 		return (ft_error());
+	// if (data->len <= 5)
+	// 	sort_small_stack(&a, &b);
+	// else
+	// 	sort_big_stack(&a, &b);	
+	
 	// i = 0;
-
 	// while (i < data->len)
 	// {
 	// 	printf("%d, %d\n", data->len, data->tab[i++]);
@@ -41,45 +45,13 @@ int main(int ac, char **av)
 
 	a = create_lst(data);
 	b = NULL;
-	b = b;
-	tmp = a;
-
-	printf("====STACK A====\n");
-	i = 0;
-	while (i < data->len)
-	{
-		printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n", a, a->prev, a->next, a->content, a->index);
-		a = a->next;
-		i++;
-	}
-	a = tmp;
-	
-	rra(&a);
-	printf("nbr = %d\n", stack_len(a));
-	// printf("%d\n", a->content);
+	print_lst(a);
+	while (is_a_sorted(a) == 0)
+		sort_radix(&a, &b, data->len);
+	print_lst(a);
 	printf("%d\n", is_a_sorted(a));
-	// pa(&a, &b);
-	
-	printf("\n====STACK A====\n\n");
-	// printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
-
-	i = 0;
-	while (i < data->len)
-	{
-		printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n", a, a->prev, a->next, a->content, a->index);
-		a = a->next;
-		i++;
-	}
-
-	// b = b->next;
-	// printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n\n", b, b->prev, b->next, b->content, b->index);
-	// i = 0;
-	// while (i < data->len - 1)
-	// {
-	// 	printf("addr=%p, prev=%p, next=%p, value=%d, index=%d\n", a, a->prev, a->next, a->content, a->index);
-	// 	a = a->next;
-	// 	i++;
-	// }
+	// b = b;
+	// tmp = a;
 
 	free_tab(data);
 	return (0);

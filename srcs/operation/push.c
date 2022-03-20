@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:24:24 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/15 14:17:23 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/19 15:47:30 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	push(t_stack **a, t_stack **b)
 		if (!*b)
 		{
 			*b = *a;
-			printf("oauis\n");
+			// printf("oauis\n");
 			*a = (*a)->next;
 			// printf("test %d \n\n", (*a)->content);
 			(*b)->prev = NULL;
@@ -32,7 +32,7 @@ int	push(t_stack **a, t_stack **b)
 		}
 		else
 		{
-			printf("testttttttt\n\n");
+			// printf("testttttttt\n\n");
 			// (*b)->prev = *a;
 			// *b = *a;
 			// *a = (*a)->next;
@@ -51,7 +51,7 @@ int	push(t_stack **a, t_stack **b)
 	}
 	else
 	{
-		printf("ouasu\n\n");
+		// printf("ouasu\n\n");
 		return (0);
 	}
 }
@@ -74,7 +74,7 @@ void	push_null(t_stack **a, t_stack **b)
 
 void	push_filled(t_stack **a, t_stack **b)
 {
-	printf("ouais");
+	// printf("ouais");
 	a=a;
 	b=b;
 	*a = (*a)->next;
