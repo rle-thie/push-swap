@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:35:42 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/21 14:44:21 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:36:20 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,17 @@
 // plus petit nbr de la stack
 
 // cherche le plus petit nbr apres int x
+
+t_stack	*find_content(t_stack *tmp, int i)
+{
+	while(tmp)
+	{
+		if (tmp->content == i)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (NULL);
+}
 
 t_stack	*smallest_nbr(t_stack *lst)
 {
@@ -39,37 +50,57 @@ t_stack	*smallest_nbr(t_stack *lst)
 	return (NULL);
 }
 
-void smallest_after(t_stack *lst, int content)
+t_stack *smallest_after(t_stack *lst, int content)
 {
 	t_stack	*tmp;
-	t_stack	*next_content;
+	// t_stack	*next_content;
 	int	i;
-	int	diff;
+	int	first;
 	
-	diff = 0;
+	first = 1;
 	tmp = lst;
-	next_content = NULL;
-	i = content + 1;
+	// next_content = NULL;
+	i = content;
 	while (tmp)
 	{
-		
+		if (tmp->content > content && first == 1)
+		{
+			first = 0;
+			i = tmp->content;
+		}
+		else if (tmp->content < i && tmp->content > content)
+			i = tmp->content;
+		tmp = tmp->next;
 	}
+	if (i == content)
+		return (NULL);
+	else
+	{
+		// tmp = lst;
+		return(find_content(lst, i));
+		// while(tmp)
+		// {
+		// 	if (tmp->content == i)
+		// 		return (tmp);
+		// 	tmp = tmp->next;
+		// }
+	}
+	return (NULL);
 }
 
 int	sort_index_simp(t_stack **lst, int len)
 {
 	t_stack	*tmp;
-	// int	i;
-	len = len;
-	// i = 0;
+	int	i;
+
+	i = 0;
 	tmp = *lst;
 	tmp = smallest_nbr(tmp);
 	tmp->index = 0;
-	smallest_after(*lst, tmp->content);
-	// while (i < len - 1)
-	// {
-	// 	tmp = smallest_after(*lst, tmp->content);
-	// 	tmp->index = ++i;
-	// }
+	while (i < len - 1)
+	{
+		tmp = smallest_after(*lst, tmp->content);
+		tmp->index = ++i;
+	}
 	return (1);
 }
