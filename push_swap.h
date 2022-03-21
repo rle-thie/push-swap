@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/21 14:15:38 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:38:18 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ t_tab	*check_input(int ac, char **av);
 t_stack	*create_lst(t_tab *data);
 t_stack	*ft_lst_last(t_stack *lst);
 
-int	sort_index_simp(t_stack **lst, int len);
 
 // operations
 int	swap(t_stack *lst);
@@ -56,6 +55,7 @@ void	ra(t_stack **lst);
 void	rb(t_stack **lst);
 void	rr(t_stack **a, t_stack **b);
 
+
 // int	push(t_stack **a, t_stack **b);
 void	push_filled(t_stack **a, t_stack **b);
 void	push_null(t_stack **a, t_stack **b);
@@ -67,10 +67,16 @@ void	rra(t_stack **a);
 void	rrb(t_stack **a);
 void	rrr(t_stack **a, t_stack **b);
 
+
 // sort
 int	is_a_sorted(t_stack *lst);
 int	stack_len(t_stack *lst);
 void	sort_radix(t_stack **a, t_stack **b, int size);
 void	print_lst(t_stack *lst);
+
+int	sort_index_simp(t_stack **lst, int len);
+t_stack *smallest_after(t_stack *lst, int content);
+t_stack	*smallest_nbr(t_stack *lst);
+t_stack	*find_content(t_stack *tmp, int i);
 
 #endif
