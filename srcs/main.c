@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/20 00:42:57 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/21 14:17:40 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,15 @@ int main(int ac, char **av)
 
 	a = create_lst(data);
 	b = NULL;
+	b=b;
 	print_lst(a);
-	while (is_a_sorted(a) == 0)
-		sort_radix(&a, &b, data->len);
-	print_lst(a);
-	printf("%d\n", is_a_sorted(a));
+
+	sort_index_simp(&a, data->len);
+	// while (is_a_sorted(a) == 0)
+	// 	sort_radix(&a, &b, data->len);
+	// print_lst(a);
+	// printf("%d\n", is_a_sorted(a));
+	
 	// b = b;
 	// tmp = a;
 

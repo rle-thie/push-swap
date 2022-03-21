@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/19 16:53:20 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/21 14:15:38 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_tab	*check_input(int ac, char **av);
 
 t_stack	*create_lst(t_tab *data);
 t_stack	*ft_lst_last(t_stack *lst);
+
+int	sort_index_simp(t_stack **lst, int len);
 
 // operations
 int	swap(t_stack *lst);
