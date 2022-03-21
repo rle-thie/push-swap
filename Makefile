@@ -6,7 +6,7 @@
 #    By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 19:05:04 by rle-thie          #+#    #+#              #
-#    Updated: 2022/03/21 14:11:41 by rle-thie         ###   ########.fr        #
+#    Updated: 2022/03/21 17:31:15 by rle-thie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	= $(addprefix srcs/, main.c \
 					parsing/init_list.c parsing/sort_index.c \
 					operation/swap.c operation/rotate.c \
 					operation/push.c operation/reverse_rotate.c \
-					sort/sort_utils.c sort/radix.c)
+					sort/sort_utils.c sort/radix.c sort/sort_small.c)
 
 OBJDIR = objs
 

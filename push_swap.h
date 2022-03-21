@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/21 16:38:18 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/21 21:03:30 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,17 @@ void	rrr(t_stack **a, t_stack **b);
 int	is_a_sorted(t_stack *lst);
 int	stack_len(t_stack *lst);
 void	sort_radix(t_stack **a, t_stack **b, int size);
-void	print_lst(t_stack *lst);
 
 int	sort_index_simp(t_stack **lst, int len);
 t_stack *smallest_after(t_stack *lst, int content);
 t_stack	*smallest_nbr(t_stack *lst);
 t_stack	*find_content(t_stack *tmp, int i);
+void	sort_3_lst(t_stack **a, t_stack **b, int len);
+void sort_5_lst(t_stack **a, t_stack **b, int len);
 
+
+
+
+// a delete !!
+void	print_lst(t_stack *lst);
 #endif
