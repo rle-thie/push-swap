@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:16:32 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/16 15:50:29 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/22 19:01:48 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	reverse_rotate(t_stack	**lst)
 {
 	t_stack	*last;
-	t_stack *first;
-	
+	t_stack	*first;
+
 	if (*lst && (*lst)->next)
 	{
 		last = *lst;

@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:35:42 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/21 16:36:20 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/22 19:03:39 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 t_stack	*find_content(t_stack *tmp, int i)
 {
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->content == i)
 			return (tmp);
@@ -30,8 +30,8 @@ t_stack	*find_content(t_stack *tmp, int i)
 t_stack	*smallest_nbr(t_stack *lst)
 {
 	t_stack	*tmp;
-	int	i;
-	
+	int		i;
+
 	tmp = lst;
 	i = tmp->content;
 	while (tmp)
@@ -41,7 +41,7 @@ t_stack	*smallest_nbr(t_stack *lst)
 		tmp = tmp->next;
 	}
 	tmp = lst;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->content == i)
 			return (tmp);
@@ -50,16 +50,14 @@ t_stack	*smallest_nbr(t_stack *lst)
 	return (NULL);
 }
 
-t_stack *smallest_after(t_stack *lst, int content)
+t_stack	*smallest_after(t_stack *lst, int content)
 {
 	t_stack	*tmp;
-	// t_stack	*next_content;
-	int	i;
-	int	first;
-	
+	int		i;
+	int		first;
+
 	first = 1;
 	tmp = lst;
-	// next_content = NULL;
 	i = content;
 	while (tmp)
 	{
@@ -76,14 +74,7 @@ t_stack *smallest_after(t_stack *lst, int content)
 		return (NULL);
 	else
 	{
-		// tmp = lst;
-		return(find_content(lst, i));
-		// while(tmp)
-		// {
-		// 	if (tmp->content == i)
-		// 		return (tmp);
-		// 	tmp = tmp->next;
-		// }
+		return (find_content(lst, i));
 	}
 	return (NULL);
 }
@@ -91,7 +82,7 @@ t_stack *smallest_after(t_stack *lst, int content)
 int	sort_index_simp(t_stack **lst, int len)
 {
 	t_stack	*tmp;
-	int	i;
+	int		i;
 
 	i = 0;
 	tmp = *lst;

@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:25:40 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/16 15:42:57 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/22 19:01:31 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	rotate(t_stack **lst)
 		last = *lst;
 		*lst = (*lst)->next;
 		first = *lst;
-		// printf("\n%d %d\n", last->content, first->content);
 		(*lst)->prev = NULL;
 		*lst = ft_lst_last(*lst);
 		(*lst)->next = last;
@@ -48,7 +47,7 @@ void	rb(t_stack **lst)
 
 void	rr(t_stack **a, t_stack **b)
 {
-	int c;
+	int	c;
 
 	c = 0;
 	if (rotate(a))

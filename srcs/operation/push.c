@@ -6,55 +6,11 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:24:24 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/19 15:47:30 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/22 19:01:09 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-int	push(t_stack **a, t_stack **b)
-{
-	// t_list	*tmp_prev;
-	// t_list	*tmp_next;
-	
-	if (*a)
-	{
-		if (!*b)
-		{
-			*b = *a;
-			// printf("oauis\n");
-			*a = (*a)->next;
-			// printf("test %d \n\n", (*a)->content);
-			(*b)->prev = NULL;
-			(*b)->next = NULL;
-			(*a)->prev = NULL;
-			return (1);
-		}
-		else
-		{
-			// printf("testttttttt\n\n");
-			// (*b)->prev = *a;
-			// *b = *a;
-			// *a = (*a)->next;
-			// (*b)->next->prev = *b;
-			
-			// (*a)->prev = NULL;
-			// (*b)->prev = NULL;
-			(*b)->prev = *a;
-			(*b)->prev->next = *b;
-			(*a)->next->prev = NULL;
-			*b = *a;
-			(*b)->prev = NULL;
-			return (1);
-		}
-		// a->next->prev = NULL;
-	}
-	else
-	{
-		// printf("ouasu\n\n");
-		return (0);
-	}
-}
 
 void	push_null(t_stack **a, t_stack **b)
 {
@@ -74,9 +30,6 @@ void	push_null(t_stack **a, t_stack **b)
 
 void	push_filled(t_stack **a, t_stack **b)
 {
-	// printf("ouais");
-	a=a;
-	b=b;
 	*a = (*a)->next;
 	if (!*b)
 	{
@@ -90,7 +43,6 @@ void	push_filled(t_stack **a, t_stack **b)
 		*b = (*b)->prev;
 	}
 	(*a)->prev = NULL;
-	
 }
 
 void	pa(t_stack **a, t_stack **b)

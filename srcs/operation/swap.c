@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 15:24:53 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/11 15:53:04 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/22 19:01:41 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	swap(t_stack *lst)
 {
 	int	tmp_index;
 	int	tmp_content;
-	
+
 	if (lst && lst->next != NULL)
 	{
 		tmp_content = lst->content;
@@ -25,7 +25,7 @@ int	swap(t_stack *lst)
 		lst->index = lst->next->index;
 		lst->next->content = tmp_content;
 		lst->next->index = tmp_index;
-		return (1);	
+		return (1);
 	}
 	else
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:22:44 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/21 22:06:46 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/22 19:15:12 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	sort_3_lst(t_stack **a, t_stack **b, int len)
 
 int	ft_lst_size(t_stack *lst)
 {
-	int i;
+	int		i;
 	t_stack	*tmp;
-	
+
 	tmp = lst;
 	i = 0;
 	if (tmp)
@@ -49,11 +49,11 @@ int	ft_lst_size(t_stack *lst)
 	return (i);
 }
 
-int	is_in_end(t_stack *lst, int	index)
+int	is_in_end(t_stack *lst, int index)
 {
-	int i;
+	int		i;
 	t_stack	*tmp;
-	int	len;
+	int		len;
 
 	tmp = lst;
 	i = 0;
@@ -67,7 +67,7 @@ int	is_in_end(t_stack *lst, int	index)
 	return (0);
 }
 
-void sort_5_lst(t_stack **a, t_stack **b, int len)
+void	sort_5_lst(t_stack **a, t_stack **b, int len)
 {
 	int	i;
 
@@ -77,7 +77,7 @@ void sort_5_lst(t_stack **a, t_stack **b, int len)
 		if ((*a)->index == i)
 		{
 			pb(a, b);
-			i++;	
+			i++;
 		}
 		else if ((*a)->next->index == i)
 			sa(*a);
