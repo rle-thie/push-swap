@@ -6,11 +6,32 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:00:21 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/21 22:08:55 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:06:17 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	free_stack(t_stack **lst)
+{
+	t_stack	*tmp;
+
+	while (*lst)
+	{
+		tmp = *lst;
+		*lst = (*lst)->next;
+		free(tmp);
+	}
+	// free(*lst);
+}
+
+int free_all(t_tab *data, t_stack **a, t_stack **b)
+{
+	free_tab(data);
+	free_stack(a);
+	free_stack(b);
+	return (1);
+}
 
 int	free_tab(t_tab *tab)
 {
@@ -28,7 +49,7 @@ int main(int ac, char **av)
 	if (ac <= 1)
 		return (ft_error());
 	data = check_input(ac, av);
-	if (!check_input(ac, av))
+	if (!data)
 		return (ft_error());
 	a = create_lst(data);
 	b = NULL;
@@ -45,6 +66,6 @@ int main(int ac, char **av)
 	// print_lst(a);
 	// printf("%d\n", is_a_sorted(a));
 
-	free_tab(data);
+	free_all(data, &a, &b);
 	return (0);
 }
