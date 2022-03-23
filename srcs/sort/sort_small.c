@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:22:44 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/23 15:57:27 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:00:43 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,21 @@ int	ft_lst_size(t_stack *lst)
 	return (i);
 }
 
-int	is_in_end(t_stack *lst, int index)
+int	is_in_end(t_stack **lst, int index)
 {
-	int		i;
-	t_stack	*tmp;
-	int		len;
+	int	i;
+	int	size;
 
-	tmp = lst;
 	i = 0;
-	len = ft_lst_size(lst) / 2;
-	while (i <= len)
+	size = ft_lst_size(*lst);
+	while (i <= size / 2)
 	{
-		if (tmp->index == index)
-			return (1);
-		tmp = tmp->next;
+		if ((*lst)->index == index)
+			return (0);
+		lst = &(*lst)->next;
+		i++;
 	}
-	return (0);
+	return (1);
 }
 
 void	sort_5_lst(t_stack **a, t_stack **b, int len)
@@ -81,7 +80,7 @@ void	sort_5_lst(t_stack **a, t_stack **b, int len)
 		}
 		else if ((*a)->next->index == i)
 			sa(*a);
-		else if (is_in_end(*a, i))
+		else if (is_in_end(a, i))
 			rra(a);
 		else
 			ra(a);
