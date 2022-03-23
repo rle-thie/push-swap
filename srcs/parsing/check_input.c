@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/22 19:25:56 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:05:39 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,17 @@ int	ft_valid_arg(char *str)
 		while (i < ft_strlen(str))
 		{
 			if (str[i] == ' ' || ft_isdigit(str[i]))
-				sign = 0;
-			if ((i == 0 && str[i] == '+' && sign == 0) ||
-				(i == 0 && str[i] == '-' && sign == 0) || str[i] == ' ')
+			{
 				i++;
-			else if ((sign == 0 && str[i] == '+') || (sign == 0 && str[i] == '-'))
+				sign = 0;
+			}
+			else if ((sign == 0 && str[i] == '+' && ft_isdigit(str[i+1])) || (sign == 0 && str[i] == '-' && ft_isdigit(str[i+1])))
 			{
 				i++;
 				sign++;
 			}
-			else if (!ft_isdigit(str[i]) || (i != 0 && str[i] == '-') || (i != 0 && str[i] == '+'))
+			else if (!ft_isdigit(str[i]))
 				return (0);
-			else
-				i++;
 		}
 		return (1);
 	}
