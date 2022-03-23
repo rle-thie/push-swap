@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:22:44 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/22 19:15:12 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/03/23 15:57:27 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	is_in_end(t_stack *lst, int index)
 	tmp = lst;
 	i = 0;
 	len = ft_lst_size(lst) / 2;
-	while (i < len)
+	while (i <= len)
 	{
 		if (tmp->index == index)
 			return (1);
