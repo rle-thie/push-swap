@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   check_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 19:24:04 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/04/05 12:57:18 by rle-thie         ###   ########.fr       */
+/*   Created: 2022/04/05 17:40:13 by rle-thie          #+#    #+#             */
+/*   Updated: 2022/04/05 17:40:44 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	ft_free(char **strs)
+int	check_int(long *tab, int len)
 {
 	int	i;
-
+	
 	i = 0;
-	while (strs[i])
+	while (i < len)
 	{
-		free(strs[i]);
+		if (tab[i] > 2147483647 && tab[i] < -2147483648)
+			return (0);
 		i++;
 	}
-	free(strs);
-}
-
-int	ft_error(void)
-{
-	write(1, "Error\n", 6);
-	return (0);
+	return (1);
 }

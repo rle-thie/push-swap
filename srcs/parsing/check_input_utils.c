@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:01:31 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/22 19:25:29 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/04/05 17:42:34 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	check_double(t_tab *data)
 	return (1);
 }
 
-int check_sorted(t_tab *data)
+int	check_sorted(t_tab *data)
 {
 	int	i;
 	int	buff;
@@ -97,7 +97,8 @@ t_tab	*check_input(int ac, char **av)
 	buff = split_input(ac, av, data);
 	intcpy(data, buff);
 	free(buff);
-	if (data->len <= 1 || !check_double(data) || !check_sorted(data))
+	if (data->len <= 1 || !check_double(data) || !check_sorted(data)
+		|| !check_int(data->tab, data->len))
 	{
 		free_tab(data);
 		return (NULL);

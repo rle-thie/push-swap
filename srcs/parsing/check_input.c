@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/03/23 17:05:39 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:55:30 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,15 @@ int	ft_valid_arg(char *str)
 				i++;
 				sign = 0;
 			}
-			else if ((sign == 0 && str[i] == '+' && ft_isdigit(str[i+1])) || (sign == 0 && str[i] == '-' && ft_isdigit(str[i+1])))
-			{
+			else if ((sign == 0 && str[i] == '+' && ft_isdigit(str[i + 1]))
+				|| (sign++ == 0 && str[i] == '-' && ft_isdigit(str[i + 1])))
 				i++;
-				sign++;
-			}
 			else if (!ft_isdigit(str[i]))
 				return (0);
 		}
 		return (1);
 	}
-	return (0);	
+	return (0);
 }
 
 // int	cmp_nbr(char *str)
@@ -106,11 +104,8 @@ int	check_space_value(int ac, char **av)
 			x = 0;
 			y = 0;
 			str = ft_split(av[i], ' ');
-			while (str[x] != NULL)
-			{
+			while (str[x++] != NULL)
 				y++;
-				x++;
-			}
 			y--;
 			c = c + y;
 			ft_free(str);
