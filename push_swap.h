@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:37 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/04/05 17:41:04 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/04/08 17:23:02 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 typedef struct s_tab
 {
-	long	*tab;
-	int		len;
+	int	*tab;
+	int	len;
+	int	is_int;
 }t_tab;
 
 typedef struct s_stack
@@ -39,7 +40,7 @@ int		ft_valid_arg(char *str);
 int		check_space_value(int ac, char **av);
 int		*split_input(int ac, char **av, t_tab *data);
 t_tab	*check_input(int ac, char **av);
-int		check_int(long *tab, int len);
+void	check_int(char **tab, t_tab *data);
 
 t_stack	*create_lst(t_tab *data);
 t_stack	*ft_lst_last(t_stack *lst);

@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:01:31 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/04/05 17:42:34 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/04/08 17:25:52 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_tab	*init_data(void)
 	if (!data)
 		return (0);
 	data->len = 0;
+	data->is_int = 0;
 	return (data);
 }
 
@@ -98,7 +99,7 @@ t_tab	*check_input(int ac, char **av)
 	intcpy(data, buff);
 	free(buff);
 	if (data->len <= 1 || !check_double(data) || !check_sorted(data)
-		|| !check_int(data->tab, data->len))
+		|| data->is_int == -1)
 	{
 		free_tab(data);
 		return (NULL);

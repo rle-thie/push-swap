@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:58:23 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/04/05 16:55:30 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:47:46 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,15 +129,14 @@ int	*split_input(int ac, char **av, t_tab *data)
 		if (ft_valid_arg(av[i]) == 1)
 			c++;
 		else
-		{
 			return (NULL);
-		}
 		i++;
 	}
 	c = c + check_space_value(ac, av);
 	tab = create_tab(c, ac, av);
 	i = 0;
 	data->len = c;
+	check_int(tab, data);
 	int_tab = convert_tab_int(tab, c);
 	return (int_tab);
 }
