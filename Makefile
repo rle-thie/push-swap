@@ -37,7 +37,7 @@ all:	${NAME}
 ${NAME}:	${OBJS}
 			
 			@make bonus -C libft
-			${CC} ${OBJS} ${CFLAG} -o $@ ${LIBFT}
+			${CC} ${OBJS} ${CFLAGS} -o $@ ${LIBFT}
 
 ${OBJDIR}/%.o:%.c
 	@mkdir -p ${@D}
