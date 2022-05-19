@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:01:31 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/04/08 17:25:52 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/05/19 16:00:46 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,7 @@ t_tab	*check_input(int ac, char **av)
 	buff = split_input(ac, av, data);
 	intcpy(data, buff);
 	free(buff);
-	if (data->len <= 1 || !check_double(data) || !check_sorted(data)
-		|| data->is_int == -1)
+	if (data->len <= 1 || !check_double(data) || data->is_int == -1)
 	{
 		free_tab(data);
 		return (NULL);
