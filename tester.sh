@@ -367,37 +367,19 @@ echo "Full Error\n"
 ./push_swap 5 4 1 2 3 8 8
 
 echo "\n"
-./push_swap 5 4 1 2 3 8+8
-
-echo "\n"
-./push_swap 5 4 1 2 3 8-8
-
-echo "\n"
 ./push_swap 5 4 1 2 3 - 8
 
 echo "\n"
 ./push_swap 5 4 1 2 3 + 8
 
 echo "\n"
-./push_swap "5 4 1 2 3 8+8"
-
-echo "\n"
 ./push_swap 5 4 1 2 3 +8 8
-
-echo "\n"
-./push_swap "5 4 1 2 3 8-8"
 
 echo "\n"
 ./push_swap "5 4 1 2 3 - 8"
 
 echo "\n"
 ./push_swap "5 4 1 2 3 + 8"
-
-echo "\n"
-./push_swap "5 4" 1 2 "3 8+8"
-
-echo "\n"
-./push_swap "5 4" 1 2 "3 8-8"
 
 echo "\n"
 ./push_swap "5 4" 1 2 "3 - 8"
