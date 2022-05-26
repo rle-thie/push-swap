@@ -6,7 +6,7 @@
 /*   By: rle-thie <rle-thie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:40:13 by rle-thie          #+#    #+#             */
-/*   Updated: 2022/05/20 15:10:50 by rle-thie         ###   ########.fr       */
+/*   Updated: 2022/05/26 14:50:16 by rle-thie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	check_int(char **tab, t_tab *data)
 	b = 1;
 	while (tab[i])
 	{
-		if ((tab[i][0] == '-' && ft_strlen(tab[i]) <= 10)
+		if ((tab[i][0] == '-' && ft_strlen(tab[i]) >= 10)
 			|| ((tab[i][0] != '-' && ft_strlen(tab[i]) >= 11)))
 		{
 			b = -1;
@@ -59,7 +59,6 @@ void	check_int(char **tab, t_tab *data)
 	i = -1;
 	while (tab[++i] && b != -1)
 	{
-		// printf("%d\n", ft_atol(tab[i]));
 		if (ft_atol(tab[i]) > 2147483647 || ft_atol(tab[i]) < -2147483648)
 		{
 			data->is_int = -1;
