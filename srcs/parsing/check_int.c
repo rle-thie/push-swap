@@ -48,8 +48,8 @@ void	check_int(char **tab, t_tab *data)
 	b = 1;
 	while (tab[i])
 	{
-		if ((tab[i][0] == '-' && ft_strlen(tab[i]) >= 10)
-			|| ((tab[i][0] != '-' && ft_strlen(tab[i]) >= 11)))
+		if ((tab[i][0] == '-' && ft_strlen(tab[i]) > 11)
+			|| ((tab[i][0] != '-' && ft_strlen(tab[i]) > 10)))
 		{
 			b = -1;
 			data->is_int = -1;
